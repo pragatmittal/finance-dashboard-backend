@@ -5,7 +5,9 @@ Finance Dashboard Backend is a Node.js, Express, and MongoDB API for finance rec
 The repository is docs-first after this update:
 - `README.md` is the entry point.
 - `docs/api.md` contains the endpoint reference.
-- `docs/architecture.md` covers system design and database design.
+- `docs/architecture.md` is the combined design overview.
+- `docs/high-level-design.md` covers the system-level design.
+- `docs/low-level-design.md` covers implementation-level design.
 
 ## What It Provides
 
@@ -26,7 +28,7 @@ The repository is docs-first after this update:
 | `src/routes/` | Endpoint definitions and request validation |
 | `src/middleware/` | Authentication, validation, request IDs, and error handling |
 | `src/utils/seed.js` | Canonical seed script used by `npm run seed` |
-| `docs/` | API and architecture documentation |
+| `docs/` | API, architecture, and design documentation |
 
 ## Quick Start
 
@@ -163,3 +165,5 @@ These credentials come from `src/utils/seed.js`, which is what `npm run seed` ex
 
 - [API documentation](docs/api.md)
 - [Architecture and database design](docs/architecture.md)
+- [High-level design](docs/high-level-design.md)
+- [Low-level design](docs/low-level-design.md)

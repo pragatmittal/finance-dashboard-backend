@@ -1,5 +1,7 @@
 # Architecture and Database Design
 
+This page is the combined overview. For a concise system-level view, see [High-Level Design](./high-level-design.md). For implementation-level detail, see [Low-Level Design](./low-level-design.md).
+
 ## System Overview
 
 The API is a single-process Express application backed by MongoDB through Mongoose.
