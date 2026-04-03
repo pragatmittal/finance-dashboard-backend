@@ -34,18 +34,19 @@ const getAllRecords = async (req, res, next) => {
     const skip = (page - 1) * limit;
 
     const filter = buildFilter(req.query);
+    const activeFilter = { ...filter, isDeleted: false };
 
     // Sort: newest first by default; allow sorting by amount
     const sortField = req.query.sortBy === "amount" ? "amount" : "date";
     const sortOrder = req.query.order === "asc" ? 1 : -1;
 
     const [records, total] = await Promise.all([
-      Record.find(filter)
+      Record.find(activeFilter)
         .populate("createdBy", "name email role")
         .sort({ [sortField]: sortOrder })
         .skip(skip)
         .limit(limit),
-      Record.countDocuments(filter),
+      Record.countDocuments(activeFilter),
     ]);
 
     res.json({
