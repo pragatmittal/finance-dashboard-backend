@@ -1,6 +1,6 @@
 /**
  * Integration tests for the Finance Dashboard API.
- * Uses an in-memory approach: spins up the app and mocks DB calls where possible.
+ * Uses a real MongoDB test database and exercises the API through Supertest.
  * Run: npm test
  */
 
@@ -44,6 +44,18 @@ afterAll(async () => {
     await User.deleteMany({});
     await Record.deleteMany({});
     await mongoose.connection.close();
+});
+
+// ─── HEALTH CHECK ───────────────────────────────────────────────────────────
+
+describe("Health Check", () => {
+    it("returns a repository docs pointer on the root route", async () => {
+        const res = await request(app).get("/");
+        expect(res.statusCode).toBe(200);
+        expect(res.body.success).toBe(true);
+        expect(res.body.docs).toContain("README.md");
+        expect(res.body.docs).not.toContain("/api/docs");
+    });
 });
 
 // ─── AUTH ────────────────────────────────────────────────────────────────────

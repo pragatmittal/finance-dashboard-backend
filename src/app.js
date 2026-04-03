@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
     success: true,
     message: "Finance Dashboard API is running",
     version: "1.0.0",
-    docs: "/api/docs",
+    docs: "See README.md, docs/api.md, and docs/architecture.md",
   });
 });
 
