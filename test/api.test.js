@@ -15,7 +15,7 @@ const TEST_DB =
   process.env.MONGO_URI_TEST ||
   "mongodb://localhost:27017/finance_dashboard_test";
 
-let adminToken, analystToken, viewerToken;
+let adminToken, analystToken, viewerToken;q
 let adminUser, analystUser, viewerUser;
 let testRecordId;
 
